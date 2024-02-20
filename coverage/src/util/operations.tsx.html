@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.12% </span>
+                <span class="strong">54.83% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/31</span>
+                <span class='fraction'>17/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.12% </span>
+                <span class="strong">54.83% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/31</span>
+                <span class='fraction'>17/31</span>
             </div>
         
             
@@ -57,11 +57,11 @@
         <template id="filterTemplate">
             <div class="quiet">
                 Filter:
-                <input oninput="onInput()" type="search" id="fileSearch">
+                <input type="search" id="fileSearch">
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,23 +94,23 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">386x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -127,19 +127,19 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { LxdOperation } from "types/operation";
 &nbsp;
-export const getInstanceName = <span class="fstat-no" title="function not covered" >(operation?: LxdOperation): string =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  // the url can be one of below formats</span>
-<span class="cstat-no" title="statement not covered" >  // /1.0/instances/&lt;instance_name&gt;</span>
-<span class="cstat-no" title="statement not covered" >  // /1.0/instances/&lt;instance_name&gt;?project=&lt;project_name&gt;</span>
-<span class="cstat-no" title="statement not covered" >  // /1.0/instances/&lt;instance_name&gt;/snapshots/&lt;snapshot_name&gt;</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    operation?.resources?.instances</span>
-<span class="cstat-no" title="statement not covered" >      ?.filter((item) =&gt; item.startsWith("/1.0/instances/"))</span>
-<span class="cstat-no" title="statement not covered" >      .map((item) =&gt; item.split("/")[3])</span>
-<span class="cstat-no" title="statement not covered" >      .pop()</span>
-<span class="cstat-no" title="statement not covered" >      ?.split("?")[0] ?? ""</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+export const getInstanceName = (operation?: LxdOperation): string =&gt; {
+  // the url can be one of below formats
+  // /1.0/instances/&lt;instance_name&gt;
+  // /1.0/instances/&lt;instance_name&gt;?project=&lt;project_name&gt;
+  // /1.0/instances/&lt;instance_name&gt;/snapshots/&lt;snapshot_name&gt;
+  return (
+    operation?.resources?.instances
+      ?.filter((item) =&gt; item.startsWith("/1.0/instances/"))
+      .map((item) =&gt; item.split("/")[3])
+      .pop()
+      ?.split("?")[0] ?? ""
+  );
+};
 &nbsp;
 export const getProjectName = <span class="fstat-no" title="function not covered" >(operation: LxdOperation): string =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  // the url can be</span>
@@ -163,7 +163,7 @@ export const getProjectName = <span class="fstat-no" title="function not covered
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-20T13:19:33.570Z
+                at 2024-02-20T13:45:32.477Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
