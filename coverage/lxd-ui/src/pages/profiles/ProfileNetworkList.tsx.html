@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.89% </span>
+                <span class="strong">59.45% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/37</span>
+                <span class='fraction'>22/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.42% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/7</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">64.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/34</span>
+                <span class='fraction'>22/34</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,23 +97,31 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -121,16 +129,8 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FC } from "react";
 import { LxdProfile } from "types/profile";
 import { isNicDevice } from "util/devices";
@@ -143,19 +143,19 @@ interface Props {
 const ProfileNetworkList: FC&lt;Props&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> profile }) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;&gt;
-      {Object.values(profile.devices).some(isNicDevice) ? (
-        &lt;ExpandableList
-          items={Object.values(profile.devices)
-            .filter(isNicDevice)
-            .map(<span class="fstat-no" title="function not covered" >(d</span>evice) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;div</span>
-                key={device.network}
-                className="u-truncate list-item"
-                title={`Network ${device.network}`}
-              &gt;
-                {device.network}
-              &lt;/div&gt;
-            ))}
+      {Object.values(profile.devices).some(isNicDevice<span class="branch-0 cbranch-no" title="branch not covered" >) ? (</span>
+<span class="cstat-no" title="statement not covered" >        &lt;ExpandableList</span>
+<span class="cstat-no" title="statement not covered" >          items={Object.values(profile.devices)</span>
+<span class="cstat-no" title="statement not covered" >            .filter(isNicDevice)</span>
+<span class="cstat-no" title="statement not covered" >            .map(<span class="fstat-no" title="function not covered" >(d</span>evice) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >              &lt;div</span></span>
+<span class="cstat-no" title="statement not covered" >                key={device.network}</span>
+<span class="cstat-no" title="statement not covered" >                className="u-truncate list-item"</span>
+<span class="cstat-no" title="statement not covered" >                title={`Network ${device.network}`}</span>
+<span class="cstat-no" title="statement not covered" >              &gt;</span>
+<span class="cstat-no" title="statement not covered" >                {device.network}</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >            ))}</span>
         /&gt;
       ) : (
         &lt;div className="list-item"&gt;-&lt;/div&gt;
@@ -172,7 +172,7 @@ export default ProfileNetworkList;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-21T17:14:55.523Z
+                at 2024-02-22T17:43:19.363Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
