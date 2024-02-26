@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.85% </span>
+                <span class="strong">45.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/35</span>
+                <span class='fraction'>16/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.76% </span>
+                <span class="strong">61.53% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/26</span>
+                <span class='fraction'>16/26</span>
             </div>
         
             
@@ -89,22 +89,22 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -120,15 +120,15 @@ import { getInstanceName } from "./operations";
 import InstanceLink from "pages/instances/InstanceLink";
 import { ReactNode } from "react";
 &nbsp;
-export const instanceLinkFromName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" >(a</span>rgs: {</span></span>
-<span class="cstat-no" title="statement not covered" >  instanceName: string;</span>
-<span class="cstat-no" title="statement not covered" >  project?: string;</span>
-<span class="cstat-no" title="statement not covered" >}): ReactNode =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const { project, instanceName } = <span class="cstat-no" title="statement not covered" >args;</span></span>
-<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >  return (</span></span>
-<span class="cstat-no" title="statement not covered" >    &lt;InstanceLink instance={{ name: instanceName, project: project || <span class="branch-1 cbranch-no" title="branch not covered" >"" }</span>} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+export const instanceLinkFromName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(a</span>rgs: {</span>
+  instanceName: string;
+  project?: string;
+}): ReactNode =&gt; {
+  const { project, instanceName } = <span class="cstat-no" title="statement not covered" >args;</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;InstanceLink instance={{ name: instanceName, project: project || <span class="branch-1 cbranch-no" title="branch not covered" >"" }</span>} /&gt;
+  );
+};
 &nbsp;
 export const instanceLinkFromOperation = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" >(a</span>rgs: {</span></span>
 <span class="cstat-no" title="statement not covered" >  operation?: LxdOperationResponse;</span>
@@ -148,7 +148,7 @@ export const instanceLinkFromOperation = <span class="cstat-no" title="statement
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-22T17:43:19.363Z
+                at 2024-02-26T11:44:30.945Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
