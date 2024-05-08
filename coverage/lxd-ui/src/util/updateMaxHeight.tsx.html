@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.09% </span>
+                <span class="strong">74.41% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>31/43</span>
+                <span class='fraction'>32/43</span>
             </div>
         
             
@@ -94,42 +94,42 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">74x</span>
-<span class="cline-any cline-yes">74x</span>
-<span class="cline-any cline-yes">74x</span>
-<span class="cline-any cline-yes">74x</span>
-<span class="cline-any cline-yes">74x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">149x</span>
-<span class="cline-any cline-yes">53x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">197x</span>
-<span class="cline-any cline-yes">197x</span>
-<span class="cline-any cline-yes">149x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { getAbsoluteHeightBelow } from "./helpers";
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">155x</span>
+<span class="cline-any cline-yes">63x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">214x</span>
+<span class="cline-any cline-yes">214x</span>
+<span class="cline-any cline-yes">155x</span>
+<span class="cline-any cline-yes">59x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { getAbsoluteHeightBelowById } from "./helpers";
 &nbsp;
 type HeightProperty = "height" | "max-height" | "min-height";
 &nbsp;
-export const updateMaxHeight = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
+export const updateMaxHeight = <span class="fstat-no" title="function not covered" >(</span>
   targetClass: string,
   bottomClass?: string,
   additionalOffset = <span class="branch-0 cbranch-no" title="branch not covered" >0,</span>
@@ -149,7 +149,7 @@ export const updateMaxHeight = <span class="cstat-no" title="statement not cover
     : 0;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  below += belowIds.reduce(</span>
-<span class="fstat-no" title="function not covered" >    (a</span>cc, belowId) =&gt; <span class="cstat-no" title="statement not covered" >acc + getAbsoluteHeightBelow(belowId),</span>
+<span class="fstat-no" title="function not covered" >    (a</span>cc, belowId) =&gt; <span class="cstat-no" title="statement not covered" >acc + getAbsoluteHeightBelowById(belowId),</span>
     0,
   );
   const offset = <span class="cstat-no" title="statement not covered" >Math.ceil(above + below + additionalOffset);</span>
@@ -163,7 +163,7 @@ export const updateMaxHeight = <span class="cstat-no" title="statement not cover
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-26T11:44:30.945Z
+                at 2024-05-08T11:02:07.663Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

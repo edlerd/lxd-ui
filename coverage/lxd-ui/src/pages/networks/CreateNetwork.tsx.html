@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/39</span>
+                <span class='fraction'>0/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/39</span>
+                <span class='fraction'>0/38</span>
             </div>
         
             
@@ -208,10 +208,7 @@
 <a name='L143'></a><a href='#L143'>143</a>
 <a name='L144'></a><a href='#L144'>144</a>
 <a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a>
-<a name='L148'></a><a href='#L148'>148</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -318,18 +315,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -380,7 +376,6 @@ import { fetchClusterMembers } from "api/cluster";
 import BaseLayout from "components/BaseLayout";
 import { MAIN_CONFIGURATION } from "pages/networks/forms/NetworkFormMenu";
 import { slugify } from "util/slugify";
-import { YAML_CONFIGURATION } from "pages/profiles/forms/ProfileFormMenu";
 import FormFooterLayout from "components/forms/FormFooterLayout";
 import { useToastNotification } from "context/toastNotificationProvider";
 &nbsp;
@@ -464,6 +459,10 @@ const CreateNetwork: FC = <span class="cstat-no" title="statement not covered" >
 <span class="cstat-no" title="statement not covered" >    return dumpYaml(payload);</span>
   };
 &nbsp;
+  const updateSection = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(n</span>ewSection: string) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setSection(slugify(newSection));</span>
+  };
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;BaseLayout title="Create a network" contentClassName="create-network"&gt;
       &lt;NotificationRow /&gt;
@@ -472,12 +471,7 @@ const CreateNetwork: FC = <span class="cstat-no" title="statement not covered" >
         getYaml={getYaml}
         project={project}
         section={section}
-        setSection={<span class="fstat-no" title="function not covered" >(s</span>ection) =&gt; {
-<span class="cstat-no" title="statement not covered" >          if (Boolean(formik.values.yaml) &amp;&amp; section !== YAML_CONFIGURATION) {</span>
-<span class="cstat-no" title="statement not covered" >            void formik.setFieldValue("yaml", undefined);</span>
-          }
-<span class="cstat-no" title="statement not covered" >          setSection(slugify(section));</span>
-        }}
+        setSection={updateSection}
       /&gt;
       &lt;FormFooterLayout&gt;
         &lt;Button
@@ -511,7 +505,7 @@ export default CreateNetwork;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-26T11:44:30.945Z
+                at 2024-05-08T11:02:07.663Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

@@ -136,9 +136,7 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -192,9 +190,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,7 +210,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FC } from "react";
-import { Button, Col, Icon, Row } from "@canonical/react-components";
+import { Button, Icon } from "@canonical/react-components";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "context/auth";
 import Loader from "components/Loader";
@@ -237,52 +233,50 @@ const Login: FC = <span class="cstat-no" title="statement not covered" ><span cl
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;CustomLayout&gt;
-      &lt;Row className="empty-state"&gt;
-        &lt;Col size={6} className="col-start-large-4"&gt;
-          &lt;Icon name="containers" className="empty-state-icon lxd-icon" /&gt;
-          &lt;h1 className="p-heading--4 u-sv-2"&gt;Login&lt;/h1&gt;
-          {hasOidc &amp;&amp; (
-            &lt;&gt;
-              &lt;p className="u-sv1"&gt;Choose your login method&lt;/p&gt;
-              &lt;a className="p-button--positive" href="/oidc/login"&gt;
-                Login with SSO
-              &lt;/a&gt;
-              &lt;h2 className="p-heading--5 u-sv-2"&gt;Other methods&lt;/h2&gt;
-              &lt;div&gt;
-                Either{" "}
-                &lt;Link to="/ui/login/certificate-generate"&gt;
-                  create a new certificate
-                &lt;/Link&gt;
-              &lt;/div&gt;
-              &lt;div&gt;
-                Or{" "}
-                &lt;Link to="/ui/login/certificate-add"&gt;
-                  use an existing certificate
-                &lt;/Link&gt;{" "}
-                already added to your browser
-              &lt;/div&gt;
-            &lt;/&gt;
-          )}
-          {!hasOidc &amp;&amp; (
-            &lt;&gt;
-              &lt;p className="u-sv1"&gt;Certificate selection&lt;/p&gt;
-              &lt;Button
-                appearance={"positive"}
-                onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >n</span>avigate("/ui/login/certificate-generate")}</span>
-              &gt;
-                Create a new certificate
-              &lt;/Button&gt;
-              &lt;p&gt;
-                Or{" "}
-                &lt;Link to="/ui/login/certificate-add"&gt;
-                  use an existing certificate
-                &lt;/Link&gt;{" "}
-                already added to your browser
-              &lt;/p&gt;
-            &lt;/&gt;
-          )}
-        &lt;/Col&gt;
-      &lt;/Row&gt;
+      &lt;div className="empty-state login"&gt;
+        &lt;Icon name="containers" className="empty-state-icon lxd-icon" /&gt;
+        &lt;h1 className="p-heading--4 u-sv-2"&gt;Login&lt;/h1&gt;
+        {hasOidc &amp;&amp; (
+          &lt;&gt;
+            &lt;p className="u-sv1"&gt;Choose your login method&lt;/p&gt;
+            &lt;a className="p-button--positive" href="/oidc/login"&gt;
+              Login with SSO
+            &lt;/a&gt;
+            &lt;h2 className="p-heading--5 u-sv-2"&gt;Other methods&lt;/h2&gt;
+            &lt;div&gt;
+              Either{" "}
+              &lt;Link to="/ui/login/certificate-generate"&gt;
+                create a new certificate
+              &lt;/Link&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              Or{" "}
+              &lt;Link to="/ui/login/certificate-add"&gt;
+                use an existing certificate
+              &lt;/Link&gt;{" "}
+              already added to your browser
+            &lt;/div&gt;
+          &lt;/&gt;
+        )}
+        {!hasOidc &amp;&amp; (
+          &lt;&gt;
+            &lt;p className="u-sv1"&gt;Certificate selection&lt;/p&gt;
+            &lt;Button
+              appearance={"positive"}
+              onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >n</span>avigate("/ui/login/certificate-generate")}</span>
+            &gt;
+              Create a new certificate
+            &lt;/Button&gt;
+            &lt;p&gt;
+              Or{" "}
+              &lt;Link to="/ui/login/certificate-add"&gt;
+                use an existing certificate
+              &lt;/Link&gt;{" "}
+              already added to your browser
+            &lt;/p&gt;
+          &lt;/&gt;
+        )}
+      &lt;/div&gt;
     &lt;/CustomLayout&gt;
   );
 };
@@ -295,7 +289,7 @@ export default Login;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-26T11:44:30.945Z
+                at 2024-05-08T11:02:07.663Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

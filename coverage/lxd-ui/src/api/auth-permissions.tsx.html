@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for lxd-ui/src/util/storagePoolEdit.tsx</title>
+    <title>Code coverage report for lxd-ui/src/api/auth-permissions.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">lxd-ui/src/util</a> storagePoolEdit.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">lxd-ui/src/api</a> auth-permissions.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
@@ -84,50 +84,47 @@
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { LxdStoragePool } from "types/storage";
-import { StoragePoolFormValues } from "pages/storage/forms/StoragePoolForm";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { handleResponse } from "util/helpers";
+import { LxdApiResponse } from "types/apiResponse";
+import { LxdPermission } from "types/permissions";
 &nbsp;
-export const getStoragePoolEditValues = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
-  pool: LxdStoragePool,
-): StoragePoolFormValues =&gt; {
-<span class="cstat-no" title="statement not covered" >  return {</span>
-    readOnly: true,
-    isCreating: false,
-    name: pool.name,
-    description: pool.description,
-    driver: pool.driver,
-    source: pool.config.source || "",
-    size: pool.config.size || "GiB",
-    entityType: "storagePool",
-    ceph_cluster_name: pool.config["ceph.cluster_name"],
-    ceph_osd_pg_num: pool.config["ceph.osd.pg_num"],
-    ceph_rbd_clone_copy: pool.config["ceph.rbd.clone_copy"],
-    ceph_user_name: pool.config["ceph.user.name"],
-    ceph_rbd_features: pool.config["ceph.rbd.features"],
-  };
+export const fetchPermissions = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(a</span>rgs: {</span>
+  resourceType: string;
+  project?: string;
+}): Promise&lt;LxdPermission[]&gt; =&gt; {
+  const { resourceType, project } = <span class="cstat-no" title="statement not covered" >args;</span>
+  let url = <span class="cstat-no" title="statement not covered" >`/1.0/auth/permissions?entity-type=${resourceType}`;</span>
+<span class="cstat-no" title="statement not covered" >  if (project) {</span>
+<span class="cstat-no" title="statement not covered" >    url += `&amp;project=${project}`;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    fetch(url)</span>
+      .then(handleResponse)
+      .then(<span class="fstat-no" title="function not covered" >(d</span>ata: LxdApiResponse&lt;LxdPermission[]&gt;) =&gt; <span class="cstat-no" title="statement not covered" >resolve(data.metadata))</span>
+      .catch(reject);
+  });
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -136,7 +133,7 @@ export const getStoragePoolEditValues = <span class="cstat-no" title="statement 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-26T11:44:30.945Z
+                at 2024-05-08T11:02:07.663Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
