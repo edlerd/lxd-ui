@@ -1,5 +1,11 @@
 import type { FC } from "react";
-import { Button, Icon, Tooltip } from "@canonical/react-components";
+import {
+  Button,
+  Icon,
+  Input,
+  Notification,
+  Tooltip,
+} from "@canonical/react-components";
 import CloudInitConfig from "components/forms/CloudInitConfig";
 import type {
   InstanceAndProfileFormikProps,
@@ -12,19 +18,34 @@ import { ensureEditMode } from "util/instanceEdit";
 import classnames from "classnames";
 import { getConfigRowMetadata } from "util/configInheritance";
 
+interface SshKey {
+  id: string;
+  name: string;
+  user: string;
+  fingerprint: string;
+}
+
 export interface CloudInitFormValues {
   cloud_init_network_config?: string;
   cloud_init_user_data?: string;
   cloud_init_vendor_data?: string;
+  cloud_init_ssh_keys: SshKey[];
 }
 
 export const cloudInitPayload = (values: InstanceAndProfileFormValues) => {
-  return {
+  const result: Record<string, string | undefined> = {
     [getInstanceKey("cloud_init_network_config")]:
       values.cloud_init_network_config,
     [getInstanceKey("cloud_init_user_data")]: values.cloud_init_user_data,
     [getInstanceKey("cloud_init_vendor_data")]: values.cloud_init_vendor_data,
   };
+
+  values.cloud_init_ssh_keys?.map((record) => {
+    result[`cloud-init.ssh-keys.${record.name}`] =
+      `${record.user}:${record.fingerprint}`;
+  });
+
+  return result;
 };
 
 interface Props {
@@ -105,6 +126,115 @@ const CloudInitForm: FC<Props> = ({ formik }) => {
 
   return (
     <div className="cloud-init">
+      <div className="ssh-key-form">
+        <Notification severity="information">
+          Changes get applied on instance creation or restart.
+        </Notification>
+        {formik.values.cloud_init_ssh_keys?.map((record) => (
+          <div key={record.id} className="ssh-key">
+            <Input
+              label="Name"
+              type="text"
+              value={record.name}
+              className="name"
+              onChange={(e) => {
+                ensureEditMode(formik);
+                formik.setFieldValue(
+                  "cloud_init_ssh_keys",
+                  formik.values.cloud_init_ssh_keys.map((key) => {
+                    if (key.id !== record.id) {
+                      return key;
+                    }
+                    return {
+                      ...key,
+                      name: e.target.value,
+                    };
+                  }),
+                );
+              }}
+            />
+            <Input
+              label="User"
+              type="text"
+              value={record.user}
+              className="user"
+              onChange={(e) => {
+                ensureEditMode(formik);
+                formik.setFieldValue(
+                  "cloud_init_ssh_keys",
+                  formik.values.cloud_init_ssh_keys.map((key) => {
+                    if (key.id !== record.id) {
+                      return key;
+                    }
+                    return {
+                      ...key,
+                      user: e.target.value,
+                    };
+                  }),
+                );
+              }}
+            />
+            <Input
+              label="Fingerprint"
+              type="text"
+              value={record.fingerprint}
+              wrapperClassName="fingerprint"
+              onChange={(e) => {
+                ensureEditMode(formik);
+                formik.setFieldValue(
+                  "cloud_init_ssh_keys",
+                  formik.values.cloud_init_ssh_keys.map((key) => {
+                    if (key.id !== record.id) {
+                      return key;
+                    }
+                    return {
+                      ...key,
+                      fingerprint: e.target.value,
+                    };
+                  }),
+                );
+              }}
+            />
+            <div>
+              <Button
+                onClick={() => {
+                  ensureEditMode(formik);
+                  formik.setFieldValue(
+                    "cloud_init_ssh_keys",
+                    formik.values.cloud_init_ssh_keys.filter(
+                      (key) => key.name !== record.name,
+                    ),
+                  );
+                }}
+                type="button"
+                title="Remove key"
+                hasIcon
+              >
+                <Icon name="delete" />
+              </Button>
+            </div>
+          </div>
+        ))}
+        <Button
+          type="button"
+          onClick={() => {
+            ensureEditMode(formik);
+            formik.setFieldValue("cloud_init_ssh_keys", [
+              ...formik.values.cloud_init_ssh_keys,
+              {
+                id: `ssh-key-${formik.values.cloud_init_ssh_keys.length + 1}`,
+                name: `ssh-key-${formik.values.cloud_init_ssh_keys.length + 1}`,
+                user: "root",
+                fingerprint: "",
+              },
+            ]);
+          }}
+          hasIcon
+        >
+          <Icon name="plus" />
+          <span>Attach SSH key</span>
+        </Button>
+      </div>
       <ScrollableConfigurationTable
         configurationExtra={
           <Tooltip

@@ -351,6 +351,7 @@ const CreateInstance: FC = () => {
       instanceType: "container",
       profiles: ["default"],
       devices: [],
+      cloud_init_ssh_keys: [],
       readOnly: false,
       entityType: "instance",
       isCreating: true,

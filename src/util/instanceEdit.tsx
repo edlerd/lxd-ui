@@ -65,6 +65,20 @@ const getEditValues = (
     cloud_init_network_config: item.config["cloud-init.network-config"],
     cloud_init_user_data: item.config["cloud-init.user-data"],
     cloud_init_vendor_data: item.config["cloud-init.vendor-data"],
+    cloud_init_ssh_keys: Object.keys(item.config)
+      .filter((item) => item.startsWith("cloud-init.ssh-keys."))
+      .map((key) => {
+        const [user, fingerprint] = (item.config[key] as string).split(
+          /:(.*)/s,
+        ); // split on first occurrence of ":"
+        const name = key.split(".")[2];
+        return {
+          id: name,
+          name: name,
+          user: user,
+          fingerprint: fingerprint,
+        };
+      }),
   };
 };
 

@@ -380,3 +380,25 @@ body {
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+
+.ssh-key-form {
+  margin: $sph--large;
+
+  .ssh-key {
+    align-items: flex-end;
+    display: flex;
+    gap: $sp-medium;
+
+    .fingerprint {
+      flex-grow: 1;
+    }
+
+    .name {
+      max-width: 4rem;
+    }
+
+    .user {
+      max-width: 4rem;
+    }
+  }
+}
